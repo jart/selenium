@@ -22,9 +22,9 @@ script:
     mv chromedriver chrome-linux/chromedriver
     chmod +x chrome-linux/chromedriver
 
-    which chromedriver
+    command -v chromedriver
     chromedriver --version
-    which google-chrome
+    command -v google-chrome
     google-chrome --version
 
   - ./go clean build
