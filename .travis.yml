@@ -1,7 +1,9 @@
 language: java
 sudo: true
 
-before_script: travis.sh
+before_script:
+  - chmod +x travis.sh
+  - travis.sh
 
 script:
   - ./go clean build
