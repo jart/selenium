@@ -22,11 +22,6 @@ script:
     mv chromedriver chrome-linux/chromedriver
     chmod +x chrome-linux/chromedriver
 
-    command -v chromedriver
-    chromedriver --version
-    command -v google-chrome
-    google-chrome --version
-
   - ./go clean build
   - |
     export PY_FILES_CHANGED=`git diff --name-only $TRAVIS_COMMIT_RANGE | grep ^py/`
