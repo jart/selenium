@@ -9,7 +9,6 @@ script:
 
     sh -e /etc/init.d/xvfb start
 
-    export CHROME_BIN=chrome-linux
     export CHROME_REVISION=354250
     export CHROMEDRIVER_VERSION=`curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE`
 
@@ -21,7 +20,9 @@ script:
 
     mv chromedriver chrome-linux/chromedriver
     chmod +x chrome-linux/chromedriver
-  - export PATH=$PATH:$PWD/chrome-linux/
+
+    export chrome_binary=$PWD/chrome-linux/chrome
+    export chromedriver=$PWD/chrome-linux/chromedriver
 
   - ./go clean build
   - |
