@@ -5,7 +5,7 @@ notifications:
   email: false
   irc:
     channels:
-      - "chat.freenode.org#selenium"
+    #  - "chat.freenode.org#selenium"
     on_success: never
     on_failure: always
     use_notice: true
@@ -25,8 +25,10 @@ script:
   - curl -L -O "http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
   - unzip chromedriver_linux64.zip
 
-  - mv chromedriver chrome-linux/chromedriver
+  - mkdir chrome-linux
+  - mv chromedriver chrome-linux/
   - chmod +x chrome-linux/chromedriver
+  - export PATH=$PATH:$PWD/chrome-linux/
 
   - ./go clean build
   - |
